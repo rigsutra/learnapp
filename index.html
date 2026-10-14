@@ -21850,13 +21850,41 @@
           return true;
         }
       }
-      async function cloudStart(user) {
+      // Which account the browser copy belongs to, so one user's data is never uploaded into another's row.
+      const OWNER = KEY + ".owner";
+      const getOwner = () => {
+        try {
+          return localStorage.getItem(OWNER) || "";
+        } catch (e) {
+          return "";
+        }
+      };
+      const setOwner = (v) => {
+        try {
+          localStorage.setItem(OWNER, v);
+        } catch (e) {}
+      };
+      async function cloudStart(user, signedOut) {
         cloudUser = user || null;
         if (!cloudUser) {
           cloudState = "off";
+          // Signing out clears this account's data from the browser so the next person starts clean.
+          if (signedOut) {
+            clearTimeout(cloudTimer);
+            S = seed();
+            day = today();
+            setOwner("signed-out");
+            try {
+              localStorage.setItem(KEY, JSON.stringify(S));
+            } catch (e) {}
+          }
           render();
           return;
         }
+        // Local data from another account, or made after a sign-out, is dropped instead of merged.
+        const owner = getOwner();
+        if (owner && owner !== cloudUser.id) S = seed();
+        setOwner(cloudUser.id);
         try {
           await cloudPull();
           cloudState = "on";
@@ -21876,7 +21904,7 @@
         // Defer: supabase-js warns against awaiting its own calls inside this callback.
         sb.auth.onAuthStateChange((ev, session) => {
           if ((ev === "SIGNED_IN" && !cloudUser) || ev === "SIGNED_OUT")
-            setTimeout(() => cloudStart(session && session.user), 0);
+            setTimeout(() => cloudStart(session && session.user, ev === "SIGNED_OUT"), 0);
         });
       }
       function openCloud() {
