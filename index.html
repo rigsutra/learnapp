@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Learning Kanban</title>
+    <title>Concept Master</title>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -1330,7 +1330,7 @@
               <rect x="42" y="14" width="10" height="14" rx="3" />
             </svg>
           </div>
-          Learning Kanban
+          Concept Master
         </div>
         <nav id="nav"></nav>
         <div class="stats" id="stats"></div>
@@ -21872,6 +21872,7 @@
       };
       async function cloudStart(user, signedOut) {
         cloudUser = user || null;
+        hist = null;
         if (!cloudUser) {
           cloudState = "off";
           // Signing out clears this account's data from the browser so the next person starts clean.
@@ -22470,7 +22471,54 @@
             )}</div>`
           : ""
       }
-    </div>`;
+    </div>${historyCard()}`;
+      }
+
+      // Snapshots written by the kanban_snapshot trigger. null = not loaded yet.
+      let hist = null;
+      async function loadHistory() {
+        hist = "loading";
+        const { data, error } = await sb
+          .from("kanban_history")
+          .select("id, created_at, tasks_done, log_days")
+          .order("created_at", { ascending: false })
+          .limit(50);
+        hist = error ? { err: error.message } : data;
+        if (view === "sync") render();
+      }
+      async function restoreSnapshot(id) {
+        const { data, error } = await sb.from("kanban_history").select("data").eq("id", id).single();
+        if (error) {
+          hist = { err: error.message };
+          return render();
+        }
+        cloudAdopt(data.data);
+        // A changed restoredAt makes the trigger snapshot the current version, so a wrong restore can be undone.
+        S.restoredAt = Date.now();
+        save();
+        render();
+        setTimeout(() => {
+          hist = null;
+          if (view === "sync") render();
+        }, 2500);
+      }
+      function historyCard() {
+        if (!cloudUser) return "";
+        if (hist === null) loadHistory();
+        const rows =
+          hist === null || hist === "loading"
+            ? '<p class="small muted">Loading…</p>'
+            : hist.err
+              ? `<p class="small" style="color:var(--er)">Could not load history: ${esc(hist.err)}</p>`
+              : !hist.length
+                ? '<p class="small muted">No snapshots yet.</p>'
+                : hist
+                    .map(
+                      (h) =>
+                        `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 0;border-top:1px solid var(--bd)"><span style="flex:1;min-width:140px">${esc(new Date(h.created_at).toLocaleString())}</span><span class="small muted">${h.tasks_done} tasks done · ${h.log_days} days logged</span><button class="btn sm" data-act="restore" data-hid="${h.id}">Restore</button></div>`,
+                    )
+                    .join("");
+        return `<div class="panel" style="margin-top:14px"><h3>History</h3><p class="small muted">A copy of your data is saved automatically before it changes (at most every 10 minutes, the last 50 are kept). If your progress was overwritten, restore an earlier copy. Restoring first keeps a copy of what you have now.</p>${rows}</div>`;
       }
 
       function libraryView() {
@@ -22845,8 +22893,13 @@
         switch (a) {
           case "view":
             view = el.dataset.v;
+            hist = null;
             window.scrollTo(0, 0);
             break;
+          case "restore":
+            if (!confirmTwice(el)) return;
+            restoreSnapshot(+el.dataset.hid);
+            return;
           case "new":
             return openTask(null, {
               status: el.dataset.st,
