@@ -263,6 +263,7 @@ details.how li::marker{color:var(--mu)}
       <button class="btn sm" data-act="export">Export</button>
       <button class="btn sm" data-act="import">Import</button>
       <button class="btn sm" data-act="linkfile" id="filebtn" hidden>Save to file</button>
+      <button class="btn sm" data-act="cloud" id="cloudbtn" hidden>Sign in to sync</button>
     </div>
     <div class="small muted" id="savestat" style="padding:6px 2px"></div>
     <input type="file" id="file" accept="application/json" hidden>
@@ -271,6 +272,7 @@ details.how li::marker{color:var(--mu)}
 </div>
 <dialog id="dlg"></dialog>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 /* ============================================================
    Content: resources, curriculum, routine, ideas, library
@@ -5908,6 +5910,7 @@ function save(touch = true) {
   if (touch) S.savedAt = Date.now();
   try { localStorage.setItem(KEY, JSON.stringify(S)); storeOk = true; } catch (e) { storeOk = false; }
   if (fileHandle && fileState === 'on') { clearTimeout(saveTimer); saveTimer = setTimeout(writeFile, 400); }
+  if (cloudUser) { clearTimeout(cloudTimer); cloudTimer = setTimeout(cloudPush, 800); }
 }
 const idb = (mode, fn) => new Promise((res, rej) => {
   const q = indexedDB.open('learning-kanban-files', 1);
@@ -5957,6 +5960,56 @@ async function linkFile() {
   render();
 }
 async function unlinkFile() { fileHandle = null; fileState = 'none'; try { await idb('readwrite', st => st.delete('main')); } catch (e) {} render(); }
+
+/* ---- Cloud sync: Supabase, one row per signed-in user in table kanban_state (RLS-protected). Newest savedAt wins. ---- */
+const SB_URL = 'https://ldbdkrcfjsuedqmjfxlu.supabase.co', SB_KEY = 'sb_publishable_hyqZ-2SLhFkS0UAfb3iY7Q_pxEWhsrs';
+const sb = window.supabase && !SB_KEY.startsWith('YOUR') ? window.supabase.createClient(SB_URL, SB_KEY) : null;
+let cloudUser = null, cloudState = 'off', cloudErr = '', cloudTimer = 0;
+const statText = () => cloudState === 'on' ? 'Synced to cloud + browser' : cloudState === 'error' ? 'Cloud sync failed: ' + cloudErr
+  : !storeOk ? 'Not saving: storage blocked' : fileState === 'on' ? 'Saved to your file + browser' : 'Saved in this browser only';
+async function cloudPush() {
+  if (!sb || !cloudUser) return;
+  const {error} = await sb.from('kanban_state').upsert({user_id:cloudUser.id, data:S, saved_at:S.savedAt || 0});
+  const was = cloudState;
+  cloudState = error ? 'error' : 'on'; cloudErr = error ? error.message : '';
+  if (was !== cloudState) render(); else { const ss = $('#savestat'); if (ss) ss.textContent = statText(); }
+}
+// Adopt the cloud copy if it is newer than what this browser has.
+async function cloudPull() {
+  const {data, error} = await sb.from('kanban_state').select('data').maybeSingle();
+  if (error) throw error;
+  const d = data && data.data;
+  if (d && d.v === 2 && Array.isArray(d.tasks) && (d.savedAt || 0) > (S.savedAt || 0)) {
+    S = d.cv === CV ? d : migrate(d); S.rd = S.rd || {}; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {}
+    return true;
+  }
+}
+async function cloudStart(user) {
+  cloudUser = user || null;
+  if (!cloudUser) { cloudState = 'off'; render(); return; }
+  try { await cloudPull(); cloudState = 'on'; await cloudPush(); } catch (e) { cloudState = 'error'; cloudErr = e.message; }
+  render();
+}
+async function initCloud() {
+  if (!sb) return;
+  const {data:{session}} = await sb.auth.getSession();
+  await cloudStart(session && session.user);
+  // Defer: supabase-js warns against awaiting its own calls inside this callback.
+  sb.auth.onAuthStateChange((ev, session) => {
+    if ((ev === 'SIGNED_IN' && !cloudUser) || ev === 'SIGNED_OUT') setTimeout(() => cloudStart(session && session.user), 0);
+  });
+}
+function openCloud() {
+  dlg.innerHTML = cloudUser
+    ? `<form data-kind="cloud"><h3>Cloud sync</h3><p class="small muted">Signed in as ${esc(cloudUser.email || '')}. Every change is saved to Supabase.</p>
+      <div class="dfoot"><button type="button" class="btn" data-act="signout">Sign out</button><button type="button" class="btn" data-act="close">Close</button></div></form>`
+    : `<form data-kind="cloud"><h3>Sign in to sync</h3><p class="small muted">Use the user you created in Supabase (Authentication, Users).</p>
+      <label class="f">Email</label><input name="email" type="email" autocomplete="username" required>
+      <label class="f">Password</label><input name="password" type="password" autocomplete="current-password" required>
+      <p class="small" id="cloudmsg" style="color:var(--er)"></p>
+      <div class="dfoot"><button class="btn pri" type="submit">Sign in</button><button type="button" class="btn" data-act="close">Cancel</button></div></form>`;
+  dlg.showModal();
+}
 function saveBanner() {
   const canFile = !!window.showSaveFilePicker;
   if (loadError) return `<div class="banner"><b>Warning:</b> ${esc(loadError)}</div>`;
@@ -6305,7 +6358,9 @@ function render() {
   $('#stats').innerHTML = `<div class="stat"><b>${streak()}</b><span>day streak</span></div><div class="stat"><b>${pct(avg(S.tasks))}</b><span>plan done</span></div>`;
   const fb = $('#filebtn'), ss = $('#savestat');
   if (fb) { fb.hidden = !window.showSaveFilePicker; fb.textContent = fileState === 'on' ? 'Unlink file' : fileState === 'needs' ? 'Reconnect file' : 'Save to file'; fb.dataset.act = fileState === 'on' ? 'unlinkfile' : 'linkfile'; }
-  if (ss) ss.textContent = !storeOk ? 'Not saving: storage blocked' : fileState === 'on' ? 'Saved to your file + browser' : 'Saved in this browser only';
+  if (ss) ss.textContent = statText();
+  const cb = $('#cloudbtn');
+  if (cb) { cb.hidden = !sb; cb.textContent = cloudUser ? 'Cloud: on' : 'Sign in to sync'; }
   $('#app').innerHTML = saveBanner() + ({today:todayView, learn:learnView, board:boardView, plan:planView, ideas:ideasView, reads:readsView, library:libraryView})[view]();
 }
 
@@ -6381,6 +6436,13 @@ function openLib(id) {
 dlg.addEventListener('submit', e => {
   e.preventDefault();
   const f = e.target, fd = new FormData(f), id = f.dataset.id, kind = f.dataset.kind;
+  if (kind === 'cloud') {
+    // On success onAuthStateChange (SIGNED_IN) starts the sync.
+    sb.auth.signInWithPassword({email:fd.get('email').trim(), password:fd.get('password')}).then(({error}) => {
+      if (error) $('#cloudmsg').textContent = error.message; else dlg.close();
+    });
+    return;
+  }
   if (kind === 'task') {
     const subs = [...f.querySelectorAll('#subs .row')].map(r => ({id:r.dataset.sid || uid(), done:r.children[0].checked, text:r.children[1].value.trim()})).filter(s => s.text);
     const links = [...f.querySelectorAll('#lnks .row')].map(r => ({label:r.children[0].value.trim(), url:r.children[1].value.trim(), kind:r.children[2].value})).filter(l => l.url);
@@ -6456,6 +6518,8 @@ document.addEventListener('click', e => {
     case 'libTab': libTab = el.dataset.v; break;
     case 'linkfile': linkFile(); return;
     case 'unlinkfile': unlinkFile(); return;
+    case 'cloud': return openCloud();
+    case 'signout': dlg.close(); sb.auth.signOut(); return;
     case 'rmark': RD()[el.dataset.u] = today(); break;
     case 'rtoggle': { const rd = RD(); if (rd[el.dataset.u]) delete rd[el.dataset.u]; else rd[el.dataset.u] = today(); break; }
     case 'rundo': delete RD()[el.dataset.u]; break;
@@ -6528,13 +6592,19 @@ document.addEventListener('drop', e => {
 if (!loadError) save(false);
 render();
 initFile();
+initCloud();
 let lastToday = today();
 function dayRolled() {
   if (today() === lastToday) return;
   if (day === lastToday) day = today();
   lastToday = today(); render();
 }
-document.addEventListener('visibilitychange', () => { if (!document.hidden) dayRolled(); });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) return;
+  dayRolled();
+  // Pick up edits made on another device while this tab was in the background.
+  if (cloudUser && !dlg.open) cloudPull().then(n => n && render(), () => {});
+});
 window.addEventListener('focus', dayRolled);
 setInterval(dayRolled, 60000);
 </script>
