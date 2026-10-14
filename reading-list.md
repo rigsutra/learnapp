@@ -1,0 +1,402 @@
+# Engineering reading list (300)
+
+Easiest first. Levels: 1 Beginner, 2 Intermediate, 3 Advanced.
+
+- [Best practices for REST API design](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/) · L1 · api · Stack Overflow Blog · 9 min
+- [MonolithFirst](https://martinfowler.com/bliki/MonolithFirst.html) · L1 · api · Martin Fowler · 4 min
+- [TestPyramid](https://martinfowler.com/bliki/TestPyramid.html) · L1 · api · Martin Fowler · 4 min
+- [Introduction to gRPC](https://grpc.io/docs/what-is-grpc/introduction/) · L1 · api · gRPC · 5 min
+- [A debugging manifesto](https://jvns.ca/blog/2022/12/08/a-debugging-manifesto/) · L1 · api · Julia Evans · 6 min
+- [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests) · L1 · api · Kent C. Dodds · 5 min
+- [Things You Should Never Do, Part I](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/) · L1 · api · Joel on Software · 9 min
+- [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview) · L1 · api · MDN · 8 min
+- [Best practices for using webhooks](https://docs.github.com/en/webhooks/using-webhooks/best-practices-for-using-webhooks) · L1 · api · GitHub Docs · 5 min
+- [Concurrency is not parallelism](https://go.dev/blog/waza-talk) · L1 · api · Go Blog · 4 min
+- [Anatomy of an SQL Index](https://use-the-index-luke.com/sql/anatomy) · L1 · db · Use The Index, Luke · 8 min
+- [PostgreSQL Tutorial: Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html) · L1 · db · PostgreSQL Docs · 4 min
+- [PostgreSQL Docs: Introduction to Indexes](https://www.postgresql.org/docs/current/indexes-intro.html) · L1 · db · PostgreSQL Docs · 4 min
+- [A Visual Explanation of SQL Joins](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) · L1 · db · Coding Horror · 4 min
+- [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html) · L1 · db · SQLite · 6 min
+- [Description of the database normalization basics](https://learn.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description) · L1 · db · Microsoft · 6 min
+- [Postgres Indexes for Newbies](https://www.crunchydata.com/blog/postgres-indexes-for-newbies) · L1 · db · Crunchy Data · 8 min
+- [What is DynamoDB?](https://www.dynamodbguide.com/what-is-dynamo-db) · L1 · db · DynamoDB Guide · 6 min
+- [DataLake](https://martinfowler.com/bliki/DataLake.html) · L1 · db · Martin Fowler · 4 min
+- [MongoDB Data Modeling Introduction](https://www.mongodb.com/docs/manual/data-modeling/) · L1 · db · MongoDB Docs · 8 min
+- [Aggregate Oriented Database](https://martinfowler.com/bliki/AggregateOrientedDatabase.html) · L1 · db · Martin Fowler · 4 min
+- [Inside look at modern web browser (part 1)](https://developer.chrome.com/blog/inside-browser-part1) · L1 · fe · Chrome for Developers · 12 min
+- [How the Web works](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works) · L1 · fe · MDN · 6 min
+- [An Interactive Guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/) · L1 · fe · Josh Comeau · 25 min
+- [Web Vitals](https://web.dev/articles/vitals) · L1 · fe · web.dev · 10 min
+- [JavaScript Visualized: Event Loop](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif) · L1 · fe · Lydia Hallie · 8 min
+- [Variable scope, closure](https://javascript.info/closure) · L1 · fe · javascript.info · 15 min
+- [Thinking in React](https://react.dev/learn/thinking-in-react) · L1 · fe · React Docs · 15 min
+- [Don't Sync State. Derive It!](https://kentcdodds.com/blog/dont-sync-state-derive-it) · L1 · fe · Kent C. Dodds · 6 min
+- [TypeScript: Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html) · L1 · fe · TypeScript Docs · 15 min
+- [Why Vite](https://vite.dev/guide/why.html) · L1 · fe · Vite Docs · 6 min
+- [Introduction to web accessibility](https://webaim.org/intro/) · L1 · fe · WebAIM · 15 min
+- [Progressive web apps](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) · L1 · fe · MDN · 8 min
+- [An Introduction to Linux Permissions](https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-permissions) · L1 · linux · DigitalOcean · 8 min
+- [How To Use ps, kill, and nice to Manage Processes in Linux](https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-manage-processes-in-linux) · L1 · linux · DigitalOcean · 10 min
+- [What problems do people solve with strace?](https://jvns.ca/blog/2021/04/03/what-problems-do-people-solve-with-strace/) · L1 · linux · Julia Evans · 6 min
+- [What even is a container: namespaces and cgroups](https://jvns.ca/blog/2016/10/10/what-even-is-a-container/) · L1 · linux · Julia Evans · 8 min
+- [Understanding Linux CPU Load](https://scoutapm.com/blog/understanding-load-averages) · L1 · linux · Scout APM · 8 min
+- [An introduction to Linux filesystems](https://opensource.com/life/16/10/introduction-linux-filesystems) · L1 · linux · opensource.com · 10 min
+- [What is the Linux kernel?](https://www.redhat.com/en/topics/linux/what-is-the-linux-kernel) · L1 · linux · Red Hat · 4 min
+- [Basics of the Unix Philosophy](http://www.catb.org/esr/writings/taoup/html/ch01s06.html) · L1 · linux · Eric S. Raymond · 8 min
+- [The Missing Semester: Course overview and the shell](https://missing.csail.mit.edu/2020/course-shell/) · L1 · linux · MIT Missing Semester · 20 min
+- [The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners) · L1 · linux · Ubuntu · 25 min
+- [A Visual and Interactive Guide to the Basics of Neural Networks](https://jalammar.github.io/visual-interactive-guide-basics-neural-networks/) · L1 · ml · Jay Alammar · 12 min
+- [The Illustrated Word2vec](https://jalammar.github.io/illustrated-word2vec/) · L1 · ml · Jay Alammar · 20 min
+- [Calculus on Computational Graphs: Backpropagation](https://colah.github.io/posts/2015-08-Backprop/) · L1 · ml · Chris Olah · 15 min
+- [Embeddings: What they are and why they matter](https://simonwillison.net/2023/Oct/23/embeddings/) · L1 · ml · Simon Willison · 35 min
+- [What Is ChatGPT Doing ... and Why Does It Work?](https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/) · L1 · ml · Stephen Wolfram · 40 min
+- [Large language models, explained with a minimum of math and jargon](https://www.understandingai.org/p/large-language-models-explained-with) · L1 · ml · Understanding AI · 25 min
+- [Neural Networks and Deep Learning: Using neural nets to recognize handwritten digits](http://neuralnetworksanddeeplearning.com/chap1.html) · L1 · ml · Michael Nielsen · 40 min
+- [Embeddings (Machine Learning Crash Course)](https://developers.google.com/machine-learning/crash-course/embeddings) · L1 · ml · Google · 15 min
+- [Neural networks (Machine Learning Crash Course)](https://developers.google.com/machine-learning/crash-course/neural-networks) · L1 · ml · Google · 20 min
+- [What is a Vector Database & How Does it Work](https://www.pinecone.io/learn/vector-database/) · L1 · ml · Pinecone · 15 min
+- [Retrieval Augmented Generation](https://www.pinecone.io/learn/retrieval-augmented-generation/) · L1 · ml · Pinecone · 15 min
+- [A developer's guide to prompt engineering and LLMs](https://github.blog/ai-and-ml/generative-ai/prompt-engineering-guide-generative-ai-llms/) · L1 · ml · GitHub · 12 min
+- [What are embeddings](https://vickiboykis.com/what_are_embeddings/) · L1 · ml · Vicki Boykis · 40 min
+- [Evolution of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Evolution_of_HTTP) · L1 · net · MDN · 8 min
+- [An Introduction to Networking Terminology, Interfaces, and Protocols](https://www.digitalocean.com/community/tutorials/an-introduction-to-networking-terminology-interfaces-and-protocols) · L1 · net · DigitalOcean · 15 min
+- [An Introduction to DNS Terminology, Components, and Concepts](https://www.digitalocean.com/community/tutorials/an-introduction-to-dns-terminology-components-and-concepts) · L1 · net · DigitalOcean · 15 min
+- [How Let's Encrypt Works](https://letsencrypt.org/how-it-works/) · L1 · net · Let's Encrypt · 5 min
+- [tcpdump is amazing](https://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/) · L1 · net · Julia Evans · 5 min
+- [How updating DNS works](https://jvns.ca/blog/how-updating-dns-works/) · L1 · net · Julia Evans · 6 min
+- [Primer on Latency and Bandwidth](https://hpbn.co/primer-on-latency-and-bandwidth/) · L1 · net · High Performance Browser Networking · 15 min
+- [The OSI Model Explained](https://www.freecodecamp.org/news/osi-model-networking-layers-explained-in-plain-english/) · L1 · net · freeCodeCamp · 10 min
+- [How To Use Traceroute and MTR to Diagnose Network Issues](https://www.digitalocean.com/community/tutorials/how-to-use-traceroute-and-mtr-to-diagnose-network-issues) · L1 · net · DigitalOcean · 10 min
+- [What is a CDN? Content Delivery Network Explained](https://aws.amazon.com/what-is/cdn/) · L1 · net · AWS · 5 min
+- [What is a Container?](https://www.docker.com/resources/what-container/) · L1 · ops · Docker · 5 min
+- [Kubernetes Overview](https://kubernetes.io/docs/concepts/overview/) · L1 · ops · Kubernetes Docs · 6 min
+- [Kubernetes Pods](https://kubernetes.io/docs/concepts/workloads/pods/) · L1 · ops · Kubernetes Docs · 10 min
+- [Blue Green Deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) · L1 · ops · Martin Fowler · 4 min
+- [Canary Release](https://martinfowler.com/bliki/CanaryRelease.html) · L1 · ops · Martin Fowler · 4 min
+- [Infrastructure As Code](https://martinfowler.com/bliki/InfrastructureAsCode.html) · L1 · ops · Martin Fowler · 4 min
+- [SLA vs SLO vs SLI](https://www.atlassian.com/incident-management/kpis/sla-vs-slo-vs-sli) · L1 · ops · Atlassian · 6 min
+- [Incident Management Handbook](https://www.atlassian.com/incident-management/handbook) · L1 · ops · Atlassian · 10 min
+- [What is Continuous Integration?](https://www.atlassian.com/continuous-delivery/continuous-integration) · L1 · ops · Atlassian · 6 min
+- [What is Cloud Computing?](https://aws.amazon.com/what-is-cloud-computing/) · L1 · ops · AWS · 5 min
+- [Observability Primer](https://opentelemetry.io/docs/concepts/observability-primer/) · L1 · ops · OpenTelemetry · 8 min
+- [Terraform Introduction](https://developer.hashicorp.com/terraform/intro) · L1 · ops · HashiCorp · 6 min
+- [What is GitOps?](https://www.redhat.com/en/topics/devops/what-is-gitops) · L1 · ops · Red Hat · 6 min
+- [Load Balancing (interactive visual guide)](https://samwho.dev/load-balancing/) · L1 · sd · Sam Rose · 15 min
+- [Raft: The Secret Lives of Data](http://thesecretlivesofdata.com/raft/) · L1 · sd · Secret Lives of Data · 10 min
+- [CircuitBreaker](https://martinfowler.com/bliki/CircuitBreaker.html) · L1 · sd · Martin Fowler · 6 min
+- [Apache Kafka Introduction](https://kafka.apache.org/intro) · L1 · sd · Apache Kafka · 8 min
+- [Latency Numbers Every Programmer Should Know](https://gist.github.com/jboner/2841832) · L1 · sd · Jonas Boner · 4 min
+- [Bloom Filters by Example](https://llimllib.github.io/bloomfilter-tutorial/) · L1 · sd · Bill Mill · 8 min
+- [Understanding Database Sharding](https://www.digitalocean.com/community/tutorials/understanding-database-sharding) · L1 · sd · DigitalOcean · 10 min
+- [Introduction to HAProxy and Load Balancing Concepts](https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts) · L1 · sd · DigitalOcean · 12 min
+- [Web Caching Basics: HTTP Headers and Strategies](https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies) · L1 · sd · DigitalOcean · 12 min
+- [RabbitMQ Tutorial: Work Queues](https://www.rabbitmq.com/tutorials/tutorial-two-python) · L1 · sd · RabbitMQ · 12 min
+- [Cache-Aside pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · L1 · sd · Microsoft Azure · 8 min
+- [Notes on Distributed Systems for Young Bloods](https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/) · L1 · sd · Jeff Hodges · 8 min
+- [Top caching strategies](https://blog.bytebytego.com/p/top-caching-strategies) · L1 · sd · ByteByteGo · 5 min
+- [What Is the CAP Theorem?](https://www.ibm.com/topics/cap-theorem) · L1 · sd · IBM · 6 min
+- [Kafka in a Nutshell](https://sookocheff.com/post/kafka/kafka-in-a-nutshell/) · L1 · sd · Kevin Sookocheff · 8 min
+- [Retry pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/retry) · L1 · sd · Microsoft Azure · 8 min
+- [Idempotent (MDN Glossary)](https://developer.mozilla.org/en-US/docs/Glossary/Idempotent) · L1 · sd · MDN · 3 min
+- [Bloom Filters](https://samwho.dev/bloom-filters/) · L1 · sd · samwho · 15 min
+- [OAuth 2.0 Simplified](https://aaronparecki.com/oauth-2-simplified/) · L1 · sec · Aaron Parecki · 15 min
+- [An Illustrated Guide to OAuth and OpenID Connect](https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc) · L1 · sec · Okta Developer · 10 min
+- [The Twelve-Factor App: Config](https://12factor.net/config) · L1 · sec · 12factor.net · 4 min
+- [Overview of Cloud Native Security](https://kubernetes.io/docs/concepts/security/cloud-native-security/) · L1 · sec · Kubernetes · 8 min
+- [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies) · L1 · sec · MDN · 12 min
+- [Cross-site scripting (XSS)](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS) · L1 · sec · MDN · 6 min
+- [Cross-site request forgery (CSRF)](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF) · L1 · sec · MDN · 5 min
+- [SQL injection (Web Security Academy)](https://portswigger.net/web-security/sql-injection) · L1 · sec · PortSwigger · 15 min
+- [Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html) · L2 · api · Martin Fowler · 12 min
+- [A Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) · L2 · api · Martin Fowler · 35 min
+- [Designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency) · L2 · api · Stripe · 10 min
+- [APIs as infrastructure: future-proofing Stripe with versioning](https://stripe.com/blog/api-versioning) · L2 · api · Stripe · 9 min
+- [Evolving API Pagination at Slack](https://slack.engineering/evolving-api-pagination-at-slack/) · L2 · api · Slack Engineering · 8 min
+- [We need tool support for keyset pagination](https://use-the-index-luke.com/no-offset) · L2 · api · Use The Index, Luke · 8 min
+- [How to do a code review](https://google.github.io/eng-practices/review/reviewer/) · L2 · api · Google Engineering Practices · 15 min
+- [Don't Block the Event Loop (or the Worker Pool)](https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop) · L2 · api · Node.js Docs · 15 min
+- [Goodbye Microservices: From 100s of problem children to 1 superstar](https://segment.com/blog/goodbye-microservices/) · L2 · api · Segment · 14 min
+- [The Wrong Abstraction](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction) · L2 · api · Sandi Metz · 6 min
+- [Profiling Go Programs](https://go.dev/blog/pprof) · L2 · api · Go Blog · 15 min
+- [Sidekiq Best Practices](https://github.com/sidekiq/sidekiq/wiki/Best-Practices) · L2 · api · Sidekiq Wiki · 8 min
+- [Using EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html) · L2 · db · PostgreSQL Docs · 20 min
+- [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html) · L2 · db · PostgreSQL Docs · 15 min
+- [How to Manage Connections Efficiently in Postgres](https://brandur.org/postgres-connections) · L2 · db · Brandur · 12 min
+- [B-trees and database indexes](https://planetscale.com/blog/btrees-and-database-indexes) · L2 · db · PlanetScale · 15 min
+- [Key eviction](https://redis.io/docs/latest/develop/reference/eviction/) · L2 · db · Redis Docs · 8 min
+- [How Discord Stores Billions of Messages](https://discord.com/blog/how-discord-stores-billions-of-messages) · L2 · db · Discord · 9 min
+- [Zero-downtime Postgres migrations - the hard parts](https://gocardless.com/blog/zero-downtime-postgres-migrations-the-hard-parts/) · L2 · db · GoCardless · 10 min
+- [Eventually Consistent](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html) · L2 · db · Werner Vogels · 12 min
+- [Online migrations at scale](https://stripe.com/blog/online-migrations) · L2 · db · Stripe · 12 min
+- [Herding elephants: Lessons learned from sharding Postgres at Notion](https://www.notion.com/blog/sharding-postgres-at-notion) · L2 · db · Notion · 12 min
+- [HTTP Analytics for 6M requests per second using ClickHouse](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/) · L2 · db · Cloudflare · 15 min
+- [gh-ost: GitHub's online schema migration tool for MySQL](https://github.blog/news-insights/company-news/gh-ost-github-s-online-migration-tool-for-mysql/) · L2 · db · GitHub · 12 min
+- [Largest Contentful Paint (LCP)](https://web.dev/articles/lcp) · L2 · fe · web.dev · 10 min
+- [Interaction to Next Paint (INP)](https://web.dev/articles/inp) · L2 · fe · web.dev · 10 min
+- [Understanding Layout Algorithms](https://www.joshwcomeau.com/css/understanding-layout-algorithms/) · L2 · fe · Josh Comeau · 20 min
+- [Event loop: microtasks and macrotasks](https://javascript.info/event-loop) · L2 · fe · javascript.info · 12 min
+- [Before You memo()](https://overreacted.io/before-you-memo/) · L2 · fe · Overreacted · 8 min
+- [Application State Management with React](https://kentcdodds.com/blog/application-state-management-with-react) · L2 · fe · Kent C. Dodds · 15 min
+- [Practical React Query](https://tkdodo.eu/blog/practical-react-query) · L2 · fe · TkDodo · 15 min
+- [Micro Frontends](https://martinfowler.com/articles/micro-frontends.html) · L2 · fe · Martin Fowler · 30 min
+- [TypeScript: Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html) · L2 · fe · TypeScript Docs · 20 min
+- [ARIA Authoring Practices: Read Me First](https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/) · L2 · fe · W3C WAI · 10 min
+- [Build an offline-first app](https://developer.android.com/topic/architecture/data-layer/offline-first) · L2 · fe · Android Developers · 15 min
+- [How Discord Achieves Native iOS Performance with React Native](https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native) · L2 · fe · Discord · 10 min
+- [App startup time](https://developer.android.com/topic/performance/vitals/launch-time) · L2 · fe · Android Developers · 15 min
+- [The offline cookbook](https://jakearchibald.com/2014/offline-cookbook/) · L2 · fe · Jake Archibald · 25 min
+- [Systemd Essentials: Working with Services, Units, and the Journal](https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal) · L2 · linux · DigitalOcean · 12 min
+- [An introduction to the Linux boot and startup processes](https://opensource.com/article/17/2/linux-boot-and-startup) · L2 · linux · opensource.com · 20 min
+- [Bash Pitfalls](https://mywiki.wooledge.org/BashPitfalls) · L2 · linux · Greg's Wiki · 25 min
+- [Unofficial Bash Strict Mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) · L2 · linux · redsymbol.net · 8 min
+- [Container Networking Is Simple!](https://iximiuz.com/en/posts/container-networking-is-simple/) · L2 · linux · iximiuz · 18 min
+- [Not every container has an operating system inside](https://iximiuz.com/en/posts/not-every-container-has-an-operating-system-inside/) · L2 · linux · iximiuz · 10 min
+- [The USE Method](https://www.brendangregg.com/usemethod.html) · L2 · linux · Brendan Gregg · 12 min
+- [Memory Management Concepts Overview](https://docs.kernel.org/admin-guide/mm/concepts.html) · L2 · linux · kernel.org · 20 min
+- [Why we use the Linux kernel's TCP stack](https://blog.cloudflare.com/why-we-use-the-linux-kernels-tcp-stack/) · L2 · linux · Cloudflare · 10 min
+- [Docker without Docker](https://fly.io/blog/docker-without-docker/) · L2 · linux · Fly.io · 12 min
+- [How containers work: overlayfs](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/) · L2 · linux · Julia Evans · 6 min
+- [OSTEP - The Abstraction: Address Spaces](https://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf) · L2 · linux · OSTEP · 20 min
+- [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) · L2 · ml · Jay Alammar · 30 min
+- [Prompt Engineering](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/) · L2 · ml · Lilian Weng · 30 min
+- [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) · L2 · ml · Lilian Weng · 30 min
+- [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/) · L2 · ml · Andrej Karpathy · 20 min
+- [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) · L2 · ml · Chris Olah · 20 min
+- [Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf) · L2 · ml · Hugging Face · 20 min
+- [Tokenizer summary](https://huggingface.co/docs/transformers/tokenizer_summary) · L2 · ml · Hugging Face · 15 min
+- [Understanding Large Language Models](https://magazine.sebastianraschka.com/p/understanding-large-language-models) · L2 · ml · Sebastian Raschka · 20 min
+- [Building A Generative AI Platform](https://huyenchip.com/2024/07/25/genai-platform.html) · L2 · ml · Chip Huyen · 30 min
+- [Patterns for Building LLM-based Systems & Products](https://eugeneyan.com/writing/llm-patterns/) · L2 · ml · Eugene Yan · 40 min
+- [Task-Specific LLM Evals that Do & Don't Work](https://eugeneyan.com/writing/evals/) · L2 · ml · Eugene Yan · 25 min
+- [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) · L2 · ml · Anthropic · 20 min
+- [Introducing Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) · L2 · ml · Anthropic · 12 min
+- [Neural Networks and Deep Learning: How the backpropagation algorithm works](http://neuralnetworksanddeeplearning.com/chap2.html) · L2 · ml · Michael Nielsen · 35 min
+- [Rules of Machine Learning: Best Practices for ML Engineering](https://developers.google.com/machine-learning/guides/rules-of-ml) · L2 · ml · Google · 35 min
+- [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) · L2 · ml · Hamel Husain · 30 min
+- [Creating a LLM-as-a-Judge That Drives Business Results](https://hamel.dev/blog/posts/llm-judge/) · L2 · ml · Hamel Husain · 25 min
+- [Writing WebSocket client applications](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications) · L2 · net · MDN · 10 min
+- [Building Blocks of TCP](https://hpbn.co/building-blocks-of-tcp/) · L2 · net · High Performance Browser Networking · 25 min
+- [Transport Layer Security (TLS)](https://hpbn.co/transport-layer-security-tls/) · L2 · net · High Performance Browser Networking · 30 min
+- [HTTP/2](https://hpbn.co/http2/) · L2 · net · High Performance Browser Networking · 30 min
+- [Load Balancing at the Frontend](https://sre.google/sre-book/load-balancing-frontend/) · L2 · net · Google SRE · 15 min
+- [Understanding how Facebook disappeared from the Internet](https://blog.cloudflare.com/october-2021-facebook-outage/) · L2 · net · Cloudflare · 10 min
+- [More details about the October 4 outage](https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/) · L2 · net · Meta Engineering · 6 min
+- [HTTP/3: the past, the present, and the future](https://blog.cloudflare.com/http3-the-past-present-and-future/) · L2 · net · Cloudflare · 15 min
+- [How Facebook is bringing QUIC to billions](https://engineering.fb.com/2020/10/21/networking-traffic/how-facebook-is-bringing-quic-to-billions/) · L2 · net · Meta Engineering · 10 min
+- [A Terrible, Horrible, No-Good, Very Bad Day at Slack](https://slack.engineering/a-terrible-horrible-no-good-very-bad-day-at-slack/) · L2 · net · Slack Engineering · 10 min
+- [Evolution of Dropbox's edge network](https://dropbox.tech/infrastructure/evolution-of-dropboxs-edge-network) · L2 · net · Dropbox · 12 min
+- [How Tailscale works](https://tailscale.com/blog/how-tailscale-works) · L2 · net · Tailscale · 25 min
+- [Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/) · L2 · ops · Google SRE · 15 min
+- [Being On-Call](https://sre.google/sre-book/being-on-call/) · L2 · ops · Google SRE · 12 min
+- [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) · L2 · ops · Kubernetes Docs · 15 min
+- [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/) · L2 · ops · Kubernetes Docs · 10 min
+- [Docker Build Best Practices](https://docs.docker.com/build/building/best-practices/) · L2 · ops · Docker Docs · 15 min
+- [Feature Toggles](https://martinfowler.com/articles/feature-toggles.html) · L2 · ops · Martin Fowler · 30 min
+- [Summary of the Amazon S3 Service Disruption](https://aws.amazon.com/message/41926/) · L2 · ops · AWS · 6 min
+- [Fast and flexible observability with canonical log lines](https://stripe.com/blog/canonical-log-lines) · L2 · ops · Stripe · 8 min
+- [Why we are leaving the cloud](https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0) · L2 · ops · 37signals · 6 min
+- [Azure Well-Architected Framework pillars](https://learn.microsoft.com/en-us/azure/well-architected/pillars) · L2 · ops · Microsoft Learn · 8 min
+- [Terraform: a comprehensive guide](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca) · L2 · ops · Gruntwork · 35 min
+- [What happens when the pager goes off?](https://increment.com/on-call/when-the-pager-goes-off/) · L2 · ops · Increment · 12 min
+- [AWS's Egregious Egress](https://blog.cloudflare.com/aws-egregious-egress/) · L2 · ops · Cloudflare · 10 min
+- [Microservices](https://martinfowler.com/articles/microservices.html) · L2 · sd · Martin Fowler · 25 min
+- [CQRS](https://martinfowler.com/bliki/CQRS.html) · L2 · sd · Martin Fowler · 7 min
+- [What do you mean by Event-Driven?](https://martinfowler.com/articles/201701-event-driven.html) · L2 · sd · Martin Fowler · 10 min
+- [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) · L2 · sd · Stripe · 10 min
+- [How Discord Scaled Elixir to 5,000,000 Concurrent Users](https://discord.com/blog/how-discord-scaled-elixir-to-5-000-000-concurrent-users) · L2 · sd · Discord · 10 min
+- [The Network is Reliable](https://aphyr.com/posts/288-the-network-is-reliable) · L2 · sd · Aphyr · 20 min
+- [A Decade of Dynamo](https://www.allthingsdistributed.com/2017/10/a-decade-of-dynamo.html) · L2 · sd · Werner Vogels · 10 min
+- [Pattern: Transactional outbox](https://microservices.io/patterns/data/transactional-outbox.html) · L2 · sd · microservices.io · 5 min
+- [Under Deconstruction: The State of Shopify's Monolith](https://shopify.engineering/shopify-monolith) · L2 · sd · Shopify · 10 min
+- [Consistent Hashing](https://tom-e-white.com/2007/11/consistent-hashing.html) · L2 · sd · Tom White · 6 min
+- [PostgreSQL High Availability, Load Balancing, and Replication](https://www.postgresql.org/docs/current/high-availability.html) · L2 · sd · PostgreSQL · 8 min
+- [Partitioning GitHub's relational databases to handle scale](https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/) · L2 · sd · GitHub · 10 min
+- [Queue-Based Load Leveling pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling) · L2 · sd · Microsoft Azure · 8 min
+- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) · L2 · sd · Martin Fowler · 12 min
+- [Pattern: Saga](https://microservices.io/patterns/data/saga.html) · L2 · sd · microservices.io · 8 min
+- [Applying Back Pressure When Overloaded](https://mechanical-sympathy.blogspot.com/2012/05/apply-back-pressure-when-overloaded.html) · L2 · sd · Mechanical Sympathy · 9 min
+- [Bulkhead Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/bulkhead) · L2 · sd · Microsoft Learn · 8 min
+- [Leader and Followers](https://martinfowler.com/articles/patterns-of-distributed-systems/leader-follower.html) · L2 · sd · Martin Fowler · 10 min
+- [SameSite cookies explained](https://web.dev/articles/samesite-cookies-explained) · L2 · sec · web.dev · 10 min
+- [Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) · L2 · sec · OWASP · 12 min
+- [Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html) · L2 · sec · OWASP · 20 min
+- [Secrets Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) · L2 · sec · OWASP · 15 min
+- [Cryptographic Right Answers](https://latacora.micro.blog/2018/04/03/cryptographic-right-answers.html) · L2 · sec · Latacora · 8 min
+- [How Dropbox securely stores your passwords](https://dropbox.tech/security/how-dropbox-securely-stores-your-passwords) · L2 · sec · Dropbox · 8 min
+- [Critical vulnerabilities in JSON Web Token libraries](https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/) · L2 · sec · Auth0 · 8 min
+- [Our Software Dependency Problem](https://research.swtch.com/deps) · L2 · sec · Russ Cox · 20 min
+- [What We Can Learn from the Capital One Hack](https://krebsonsecurity.com/2019/08/what-we-can-learn-from-the-capital-one-hack/) · L2 · sec · Krebs on Security · 8 min
+- [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) · L2 · sec · Kubernetes · 12 min
+- [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) · L2 · sec · AWS Docs · 15 min
+- [Timeouts, retries and backoff with jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) · L3 · api · AWS Builders' Library · 20 min
+- [Using load shedding to avoid overload](https://aws.amazon.com/builders-library/using-load-shedding-to-avoid-overload/) · L3 · api · AWS Builders' Library · 20 min
+- [Implementing Stripe-like Idempotency Keys in Postgres](https://brandur.org/idempotency-keys) · L3 · api · Brandur · 25 min
+- [Transactionally Staged Job Drains in Postgres](https://brandur.org/job-drain) · L3 · api · Brandur · 15 min
+- [Details of the Cloudflare outage on July 2, 2019](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/) · L3 · api · Cloudflare · 14 min
+- [October 21 post-incident analysis](https://github.blog/news-insights/company-news/oct21-post-incident-analysis/) · L3 · api · GitHub Blog · 12 min
+- [Rate Limiting GraphQL APIs by Calculating Query Complexity](https://shopify.engineering/rate-limiting-graphql-apis-calculating-query-complexity) · L3 · api · Shopify Engineering · 12 min
+- [Scaling Slack's Job Queue](https://slack.engineering/scaling-slacks-job-queue/) · L3 · api · Slack Engineering · 12 min
+- [Postmortem of database outage of January 31](https://about.gitlab.com/blog/2017/02/10/postmortem-of-database-outage-of-january-31/) · L3 · db · GitLab · 12 min
+- [Please stop calling databases CP or AP](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html) · L3 · db · Martin Kleppmann · 10 min
+- [Strong consistency models](https://aphyr.com/posts/313-strong-consistency-models) · L3 · db · Aphyr · 15 min
+- [Transaction ID Wraparound in Postgres](https://blog.sentry.io/transaction-id-wraparound-in-postgres/) · L3 · db · Sentry · 12 min
+- [Scaling Datastores at Slack with Vitess](https://slack.engineering/scaling-datastores-at-slack-with-vitess/) · L3 · db · Slack · 15 min
+- [Shard Balancing: Moving Shops Confidently with Zero-Downtime](https://shopify.engineering/mysql-database-shard-balancing-terabyte-scale) · L3 · db · Shopify · 15 min
+- [Elasticsearch from the Bottom Up](https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up) · L3 · db · Elastic · 20 min
+- [Inside look at modern web browser (part 3)](https://developer.chrome.com/blog/inside-browser-part3) · L3 · fe · Chrome for Developers · 14 min
+- [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/) · L3 · fe · Jake Archibald · 20 min
+- [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/) · L3 · fe · Overreacted · 45 min
+- [React as a UI Runtime](https://overreacted.io/react-as-a-ui-runtime/) · L3 · fe · Overreacted · 40 min
+- [A (Mostly) Complete Guide to React Rendering Behavior](https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/) · L3 · fe · Mark Erikson · 40 min
+- [Local-first software](https://www.inkandswitch.com/essay/local-first/) · L3 · fe · Ink and Switch · 45 min
+- [How Figma's multiplayer technology works](https://www.figma.com/blog/how-figmas-multiplayer-technology-works/) · L3 · fe · Figma · 20 min
+- [Baseline Profiles overview](https://developer.android.com/topic/performance/baselineprofiles/overview) · L3 · fe · Android Developers · 12 min
+- [The cost of JavaScript in 2019](https://v8.dev/blog/cost-of-javascript-2019) · L3 · fe · V8 · 12 min
+- [The TTY demystified](https://www.linusakesson.net/programming/tty/) · L3 · linux · Linus Akesson · 30 min
+- [Linux Load Averages: Solving the Mystery](https://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html) · L3 · linux · Brendan Gregg · 15 min
+- [A thorough introduction to eBPF](https://lwn.net/Articles/740157/) · L3 · linux · LWN.net · 20 min
+- [In defence of swap: common misconceptions](https://chrisdown.name/2018/01/02/in-defence-of-swap.html) · L3 · linux · Chris Down · 12 min
+- [The story of one latency spike](https://blog.cloudflare.com/the-story-of-one-latency-spike/) · L3 · linux · Cloudflare · 12 min
+- [Unthrottled: How a valid fix became a kernel bug](https://engineering.indeedblog.com/blog/2019/12/unthrottled-fixing-cpu-limits-in-the-cloud/) · L3 · linux · Indeed Engineering · 15 min
+- [Files are hard](https://danluu.com/file-consistency/) · L3 · linux · Dan Luu · 15 min
+- [Optimizing web servers for high throughput and low latency](https://dropbox.tech/infrastructure/optimizing-web-servers-for-high-throughput-and-low-latency) · L3 · linux · Dropbox · 25 min
+- [Reward Hacking in Reinforcement Learning](https://lilianweng.github.io/posts/2024-11-28-reward-hacking/) · L3 · ml · Lilian Weng · 35 min
+- [Why Momentum Really Works](https://distill.pub/2017/momentum/) · L3 · ml · Distill · 35 min
+- [Making LLMs even more accessible with bitsandbytes, 4-bit quantization and QLoRA](https://huggingface.co/blog/4bit-transformers-bitsandbytes) · L3 · ml · Hugging Face · 20 min
+- [Practical Tips for Finetuning LLMs Using LoRA](https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms) · L3 · ml · Sebastian Raschka · 25 min
+- [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) · L3 · ml · Anthropic · 20 min
+- [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) · L3 · ml · Transformer Circuits · 40 min
+- [Transformer Inference Arithmetic](https://kipp.ly/transformer-inference-arithmetic/) · L3 · ml · kipply · 25 min
+- [vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention](https://blog.vllm.ai/2023/06/20/vllm.html) · L3 · ml · vLLM · 12 min
+- [How continuous batching enables 23x throughput in LLM inference](https://www.anyscale.com/blog/continuous-batching-llm-inference) · L3 · ml · Anyscale · 15 min
+- [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) · L3 · ml · Harvard NLP · 40 min
+- [Load Balancing in the Datacenter](https://sre.google/sre-book/load-balancing-datacenter/) · L3 · net · Google SRE · 20 min
+- [Cloudflare 1.1.1.1 incident on June 27, 2024](https://blog.cloudflare.com/cloudflare-1111-incident-on-june-27-2024/) · L3 · net · Cloudflare · 10 min
+- [How to stop running out of ephemeral ports and start to love long-lived connections](https://blog.cloudflare.com/how-to-stop-running-out-of-ephemeral-ports-and-start-to-love-long-lived-connections/) · L3 · net · Cloudflare · 15 min
+- [How NAT traversal works](https://tailscale.com/blog/how-nat-traversal-works) · L3 · net · Tailscale · 40 min
+- [Coping with the TCP TIME-WAIT state on busy Linux servers](https://vincent.bernat.ch/en/blog/2014-tcp-time-wait-state-linux) · L3 · net · Vincent Bernat · 15 min
+- [Monitoring and Tuning the Linux Networking Stack: Receiving Data](https://blog.packagecloud.io/monitoring-tuning-linux-networking-stack-receiving-data/) · L3 · net · packagecloud · 40 min
+- [Summary of the Amazon DynamoDB Service Disruption in US-EAST-1](https://aws.amazon.com/message/101925/) · L3 · net · AWS · 15 min
+- [Implementing health checks](https://aws.amazon.com/builders-library/implementing-health-checks/) · L3 · net · AWS Builders' Library · 25 min
+- [Addressing Cascading Failures](https://sre.google/sre-book/addressing-cascading-failures/) · L3 · ops · Google SRE · 25 min
+- [Non-Abstract Large System Design](https://sre.google/workbook/non-abstract-design/) · L3 · ops · Google SRE · 30 min
+- [Ensuring rollback safety during deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/) · L3 · ops · AWS Builders Library · 20 min
+- [Post Mortem on Cloudflare Control Plane and Analytics Outage](https://blog.cloudflare.com/post-mortem-on-cloudflare-control-plane-and-analytics-outage/) · L3 · ops · Cloudflare · 20 min
+- [Slack incident on 2-22-22](https://slack.engineering/slacks-incident-on-2-22-22/) · L3 · ops · Slack Engineering · 12 min
+- [Dapper, a Large-Scale Distributed Systems Tracing Infrastructure](https://research.google/pubs/dapper-a-large-scale-distributed-systems-tracing-infrastructure/) · L3 · ops · Google Research · 25 min
+- [Metastable Failures](https://brooker.co.za/blog/2021/05/24/metastable.html) · L3 · ops · Marc Brooker · 8 min
+- [Postmortem Lessons](https://danluu.com/postmortem-lessons/) · L3 · ops · Dan Luu · 15 min
+- [Cloud Programming Simplified: A Berkeley View on Serverless Computing](https://arxiv.org/abs/1902.03383) · L3 · ops · UC Berkeley · 40 min
+- [How Discord Stores Trillions of Messages](https://discord.com/blog/how-discord-stores-trillions-of-messages) · L3 · sd · Discord · 12 min
+- [How we built rate limiting capable of scaling to millions of domains](https://blog.cloudflare.com/counting-things-a-lot-of-different-things/) · L3 · sd · Cloudflare · 12 min
+- [How to do distributed locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html) · L3 · sd · Martin Kleppmann · 15 min
+- [Jepsen: Consistency Models](https://jepsen.io/consistency) · L3 · sd · Jepsen · 20 min
+- [Cache made consistent](https://engineering.fb.com/2022/06/08/core-infra/cache-made-consistent/) · L3 · sd · Meta · 15 min
+- [The Great Re-shard: adding Postgres capacity again with zero downtime](https://www.notion.com/blog/the-great-re-shard) · L3 · sd · Notion · 12 min
+- [Slack's Migration to a Cellular Architecture](https://slack.engineering/slacks-migration-to-a-cellular-architecture/) · L3 · sd · Slack Engineering · 15 min
+- [Consistent Hashing with Bounded Loads](https://research.google/blog/consistent-hashing-with-bounded-loads/) · L3 · sd · Google Research · 10 min
+- [Queues Don't Fix Overload](https://ferd.ca/queues-don-t-fix-overload.html) · L3 · sd · Fred Hebert · 20 min
+- [Add defense in depth against SSRF with IMDSv2](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/) · L3 · sec · AWS Security Blog · 10 min
+- [A Detailed Look at RFC 8446 (TLS 1.3)](https://blog.cloudflare.com/rfc-8446-aka-tls-1-3/) · L3 · sec · Cloudflare · 25 min
+- [Thanksgiving 2023 security incident](https://blog.cloudflare.com/thanksgiving-2023-security-incident/) · L3 · sec · Cloudflare · 15 min
+- [Everything I Know About the XZ Backdoor](https://boehs.org/node/everything-i-know-about-the-xz-backdoor) · L3 · sec · Evan Boehs · 20 min
+- [xz/liblzma backdoor discovery post](https://www.openwall.com/lists/oss-security/2024/03/29/4) · L3 · sec · oss-security · 8 min
+- [The Cryptographic Doom Principle](https://moxie.org/2011/12/13/the-cryptographic-doom-principle.html) · L3 · sec · Moxie Marlinspike · 8 min
+
+## Additional readings (95)
+
+- [What is ETL?](https://aws.amazon.com/what-is/etl/) · L1 · Data engineering · AWS · 5 min
+- [What is a Data Warehouse?](https://aws.amazon.com/what-is/data-warehouse/) · L1 · Data engineering · AWS · 6 min
+- [What is a Data Lake?](https://aws.amazon.com/what-is/data-lake/) · L1 · Data engineering · AWS · 6 min
+- [What is Apache Kafka?](https://aws.amazon.com/what-is/apache-kafka/) · L1 · Data engineering · AWS · 5 min
+- [What Is a Data Lakehouse?](https://www.ibm.com/think/topics/data-lakehouse) · L1 · Data engineering · IBM · 7 min
+- [What Is Change Data Capture?](https://www.ibm.com/think/topics/change-data-capture) · L1 · Data engineering · IBM · 6 min
+- [What is dbt?](https://docs.getdbt.com/docs/introduction) · L1 · Data engineering · dbt Docs · 5 min
+- [Understanding ELT: extract, load, transform](https://www.getdbt.com/blog/extract-load-transform) · L1 · Data engineering · dbt Labs · 6 min
+- [What is Star Schema?](https://www.databricks.com/blog/what-is-star-schema) · L1 · Data engineering · Databricks · 6 min
+- [What is Medallion Architecture?](https://www.databricks.com/blog/what-is-medallion-architecture) · L1 · Data engineering · Databricks · 6 min
+- [Apache Parquet: Motivation](https://parquet.apache.org/docs/overview/motivation/) · L1 · Data engineering · Apache Parquet · 4 min
+- [Five Advantages of Log-Based Change Data Capture](https://debezium.io/blog/2018/07/19/advantages-of-log-based-change-data-capture/) · L2 · Data engineering · Debezium · 9 min
+- [Reliable Microservices Data Exchange With the Outbox Pattern](https://debezium.io/blog/2019/02/19/reliable-microservices-data-exchange-with-the-outbox-pattern/) · L2 · Data engineering · Debezium · 12 min
+- [Schema evolution in Avro, Protocol Buffers and Thrift](https://martin.kleppmann.com/2012/12/05/schema-evolution-in-avro-protocol-buffers-thrift.html) · L2 · Data engineering · Martin Kleppmann · 14 min
+- [Streaming 101: The world beyond batch](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/) · L2 · Data engineering · O'Reilly Radar · 25 min
+- [Questioning the Lambda Architecture](https://www.oreilly.com/radar/questioning-the-lambda-architecture/) · L2 · Data engineering · O'Reilly Radar · 10 min
+- [Data Quality at Airbnb](https://medium.com/airbnb-engineering/data-quality-at-airbnb-e582465f3ef7) · L2 · Data engineering · Airbnb Engineering · 12 min
+- [Airflow: a workflow management platform](https://medium.com/airbnb-engineering/airflow-a-workflow-management-platform-46318b977fd8) · L2 · Data engineering · Airbnb Engineering · 8 min
+- [Evolution of the Netflix Data Pipeline](https://netflixtechblog.com/evolution-of-the-netflix-data-pipeline-da246ca36905) · L2 · Data engineering · Netflix TechBlog · 10 min
+- [Billions of Messages a Day: Yelp's Real-time Data Pipeline](https://engineeringblog.yelp.com/2016/07/billions-of-messages-a-day-yelps-real-time-data-pipeline.html) · L2 · Data engineering · Yelp Engineering · 10 min
+- [Data Wrangling at Slack](https://slack.engineering/data-wrangling-at-slack/) · L2 · Data engineering · Slack Engineering · 9 min
+- [How we structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview) · L2 · Data engineering · dbt Docs · 8 min
+- [What Is a Lakehouse?](https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) · L2 · Data engineering · Databricks · 10 min
+- [BigQuery under the hood](https://cloud.google.com/blog/products/bigquery/bigquery-under-the-hood) · L2 · Data engineering · Google Cloud · 12 min
+- [Turning the database inside-out with Apache Samza](https://www.confluent.io/blog/turning-the-database-inside-out-with-apache-samza/) · L3 · Data engineering · Confluent · 25 min
+- [Transactions in Apache Kafka](https://www.confluent.io/blog/transactions-apache-kafka/) · L3 · Data engineering · Confluent · 25 min
+- [DBLog: A Generic Change-Data-Capture Framework](https://netflixtechblog.com/dblog-a-generic-change-data-capture-framework-69351fb9099b) · L3 · Data engineering · Netflix TechBlog · 15 min
+- [Squeezing the firehose: getting the most from Kafka compression](https://blog.cloudflare.com/squeezing-the-firehose/) · L3 · Data engineering · Cloudflare · 15 min
+- [Project Tungsten: Improving the Efficiency of Spark Applications](https://www.databricks.com/blog/2015/04/28/project-tungsten-bringing-spark-closer-to-bare-metal.html) · L3 · Data engineering · Databricks · 12 min
+- [A practical introduction to primary indexes in ClickHouse](https://clickhouse.com/docs/guides/clickhouse/data-modelling/sparse-primary-indexes) · L3 · Data engineering · ClickHouse Docs · 30 min
+- [Streaming 102: The world beyond batch](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-102/) · L3 · Data engineering · O'Reilly Radar · 25 min
+- [Data Mesh Principles and Logical Architecture](https://martinfowler.com/articles/data-mesh-principles.html) · L3 · Data engineering · Martin Fowler · 25 min
+- [The Twelve-Factor App: Logs](https://12factor.net/logs) · L1 · Logging & observability · 12factor.net · 4 min
+- [OpenTelemetry: Traces](https://opentelemetry.io/docs/concepts/signals/traces/) · L1 · Logging & observability · OpenTelemetry · 6 min
+- [Prometheus Overview](https://prometheus.io/docs/introduction/overview/) · L1 · Logging & observability · Prometheus · 6 min
+- [Prometheus Metric Types](https://prometheus.io/docs/concepts/metric_types/) · L1 · Logging & observability · Prometheus · 4 min
+- [Grafana Loki Overview](https://grafana.com/docs/loki/latest/get-started/overview/) · L1 · Logging & observability · Grafana Labs · 6 min
+- [Monitoring 101: Collecting the right data](https://www.datadoghq.com/blog/monitoring-101-collecting-data/) · L1 · Logging & observability · Datadog · 9 min
+- [Monitoring 101: Alerting on what matters](https://www.datadoghq.com/blog/monitoring-101-alerting/) · L1 · Logging & observability · Datadog · 8 min
+- [Logging HOWTO](https://docs.python.org/3/howto/logging.html) · L1 · Logging & observability · Python docs · 15 min
+- [Why structlog](https://www.structlog.org/en/stable/why.html) · L1 · Logging & observability · structlog · 5 min
+- [Log Levels Explained and How to Use Them](https://betterstack.com/community/guides/logging/log-levels-explained/) · L1 · Logging & observability · Better Stack · 10 min
+- [OpenTelemetry: Sampling](https://opentelemetry.io/docs/concepts/sampling/) · L2 · Logging & observability · OpenTelemetry · 8 min
+- [OpenTelemetry Collector Architecture](https://opentelemetry.io/docs/collector/architecture/) · L2 · Logging & observability · OpenTelemetry · 10 min
+- [Prometheus: Metric and label naming](https://prometheus.io/docs/practices/naming/) · L2 · Logging & observability · Prometheus · 6 min
+- [Grafana Loki: Understand labels](https://grafana.com/docs/loki/latest/get-started/labels/) · L2 · Logging & observability · Grafana Labs · 8 min
+- [Logs vs Structured Events](https://charity.wtf/2019/02/05/logs-vs-structured-events/) · L2 · Logging & observability · Charity Majors · 8 min
+- [Metrics, tracing, and logging](https://peter.bourgon.org/blog/2017/02/21/metrics-tracing-and-logging.html) · L2 · Logging & observability · Peter Bourgon · 9 min
+- [Structured Logging with slog](https://go.dev/blog/slog) · L2 · Logging & observability · Go Blog · 12 min
+- [Log analytics using ClickHouse](https://blog.cloudflare.com/log-analytics-using-clickhouse/) · L2 · Logging & observability · Cloudflare · 12 min
+- [Building dashboards for operational visibility](https://aws.amazon.com/builders-library/building-dashboards-for-operational-visibility/) · L2 · Logging & observability · AWS Builders' Library · 20 min
+- [Jaeger Architecture](https://www.jaegertracing.io/docs/latest/architecture/) · L2 · Logging & observability · Jaeger · 10 min
+- [Let's talk about logging](https://dave.cheney.net/2015/11/05/lets-talk-about-logging) · L2 · Logging & observability · Dave Cheney · 8 min
+- [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/) · L2 · Logging & observability · Datadog · 9 min
+- [Troubleshooting Methodology (Effective Troubleshooting)](https://sre.google/sre-book/effective-troubleshooting/) · L2 · Logging & observability · Google SRE Book · 15 min
+- [Prometheus: Histograms and summaries](https://prometheus.io/docs/practices/histograms/) · L3 · Logging & observability · Prometheus · 12 min
+- [Alerting on SLOs](https://sre.google/workbook/alerting-on-slos/) · L3 · Logging & observability · Google SRE Workbook · 30 min
+- [Domain-Oriented Observability](https://martinfowler.com/articles/domain-oriented-observability.html) · L3 · Logging & observability · Martin Fowler · 20 min
+- [Instrumenting distributed systems for operational visibility](https://aws.amazon.com/builders-library/instrumenting-distributed-systems-for-operational-visibility/) · L3 · Logging & observability · AWS Builders' Library · 25 min
+- [Trace Context (W3C Recommendation)](https://www.w3.org/TR/trace-context/) · L3 · Logging & observability · W3C · 25 min
+- [Tracing at Slack: Thinking in Causal Graphs](https://slack.engineering/tracing-at-slack-thinking-in-causal-graphs/) · L3 · Logging & observability · Slack Engineering · 15 min
+- [Achieving Great Dynamic Sampling with Refinery](https://www.honeycomb.io/blog/dynamic-sampling-by-example) · L3 · Logging & observability · Honeycomb · 15 min
+- [It's Time to Version Observability: Observability 2.0](https://www.honeycomb.io/blog/time-to-version-observability-signs-point-to-yes) · L3 · Logging & observability · Honeycomb · 12 min
+- [Test Double](https://martinfowler.com/bliki/TestDouble.html) · L1 · Testing & quality · Martin Fowler · 4 min
+- [Test Sizes](https://testing.googleblog.com/2010/12/test-sizes.html) · L1 · Testing & quality · Google Testing Blog · 5 min
+- [Testing on the Toilet: Test Behavior, Not Implementation](https://testing.googleblog.com/2013/08/testing-on-toilet-test-behavior-not.html) · L1 · Testing & quality · Google Testing Blog · 4 min
+- [What is Test Driven Development (TDD)?](https://www.agilealliance.org/glossary/tdd/) · L1 · Testing & quality · Agile Alliance · 4 min
+- [Snapshot Testing](https://jestjs.io/docs/snapshot-testing) · L1 · Testing & quality · Jest · 6 min
+- [Getting Started Testing](https://nedbatchelder.com/text/test0.html) · L1 · Testing & quality · Ned Batchelder · 12 min
+- [Getting Started With Testing in Python](https://realpython.com/python-testing/) · L1 · Testing & quality · Real Python · 20 min
+- [What is Contract Testing and How is it Used?](https://pactflow.io/blog/what-is-contract-testing/) · L1 · Testing & quality · Pactflow · 8 min
+- [Testing Asynchronous Code](https://jestjs.io/docs/asynchronous) · L1 · Testing & quality · Jest · 5 min
+- [What is Hypothesis?](https://hypothesis.works/articles/what-is-hypothesis/) · L1 · Testing & quality · Hypothesis · 7 min
+- [Load test types](https://grafana.com/docs/k6/latest/testing-guides/test-types/) · L1 · Testing & quality · Grafana k6 · 8 min
+- [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) · L2 · Testing & quality · Martin Fowler · 25 min
+- [Eradicating Non-Determinism in Tests](https://martinfowler.com/articles/nonDeterminism.html) · L2 · Testing & quality · Martin Fowler · 10 min
+- [Code Coverage Best Practices](https://testing.googleblog.com/2020/08/code-coverage-best-practices.html) · L2 · Testing & quality · Google Testing Blog · 6 min
+- [Testing Implementation Details](https://kentcdodds.com/blog/testing-implementation-details) · L2 · Testing & quality · Kent C. Dodds · 15 min
+- [Effective Snapshot Testing](https://kentcdodds.com/blog/effective-snapshot-testing) · L2 · Testing & quality · Kent C. Dodds · 10 min
+- [Software Engineering at Google: Unit Testing](https://abseil.io/resources/swe-book/html/ch12.html) · L2 · Testing & quality · Software Engineering at Google · 30 min
+- [Tutorial: Getting started with fuzzing](https://go.dev/doc/tutorial/fuzz) · L2 · Testing & quality · Go · 20 min
+- [Handling Flaky Tests at Scale: Auto Detection and Suppression](https://slack.engineering/handling-flaky-tests-at-scale-auto-detection-suppression/) · L2 · Testing & quality · Slack Engineering · 10 min
+- [Reducing flaky builds by 18x](https://github.blog/2020-12-16-reducing-flaky-builds-by-18x/) · L2 · Testing & quality · GitHub Engineering · 8 min
+- [Basic concepts (mutation testing)](https://pitest.org/quickstart/basic_concepts/) · L2 · Testing & quality · PIT Mutation Testing · 6 min
+- [Testing in Production - Should You Do It?](https://www.honeycomb.io/blog/testing-in-production) · L2 · Testing & quality · Honeycomb · 8 min
+- [When to Mock](https://enterprisecraftsmanship.com/posts/when-to-mock/) · L2 · Testing & quality · Enterprise Craftsmanship · 10 min
+- [Testing of Microservices](https://engineering.atspotify.com/2018/01/testing-of-microservices) · L2 · Testing & quality · Spotify Engineering · 12 min
+- [Testing Strategies in a Microservice Architecture](https://martinfowler.com/articles/microservice-testing/) · L3 · Testing & quality · Martin Fowler · 40 min
+- [Software Engineering at Google: Larger Testing](https://abseil.io/resources/swe-book/html/ch14.html) · L3 · Testing & quality · Software Engineering at Google · 35 min
+- [Simulation and Testing](https://apple.github.io/foundationdb/testing.html) · L3 · Testing & quality · FoundationDB · 12 min
+- [Simulation Testing For Liveness](https://tigerbeetle.com/blog/2023-07-06-simulation-testing-for-liveness/) · L3 · Testing & quality · TigerBeetle · 15 min
+- [Testing sync at Dropbox](https://dropbox.tech/infrastructure/-testing-our-new-sync-engine) · L3 · Testing & quality · Dropbox · 15 min
+- [Testing concurrent code with testing/synctest](https://go.dev/blog/synctest) · L3 · Testing & quality · Go · 15 min
+- [How to Test](https://matklad.github.io/2021/05/31/how-to-test.html) · L3 · Testing & quality · matklad · 15 min
+- [Beware the Integrated Tests Scam](https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam) · L3 · Testing & quality · The Code Whisperer · 20 min
