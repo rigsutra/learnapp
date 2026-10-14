@@ -21848,14 +21848,6 @@
           localStorage.setItem(KEY, JSON.stringify(S));
         } catch (e) {}
       }
-      // Adopt the cloud copy if it is newer than what this browser has.
-      async function cloudPull() {
-        const d = await cloudFetch();
-        if (d && (d.savedAt || 0) > (S.savedAt || 0)) {
-          cloudAdopt(d);
-          return true;
-        }
-      }
       // Which account the browser copy belongs to, so one user's data is never uploaded into another's row.
       const OWNER = KEY + ".owner";
       const getOwner = () => {
@@ -23242,12 +23234,6 @@
       document.addEventListener("visibilitychange", () => {
         if (document.hidden) return;
         dayRolled();
-        // Pick up edits made on another device while this tab was in the background.
-        if (cloudUser && !dlg.open)
-          cloudPull().then(
-            (n) => n && render(),
-            () => {},
-          );
       });
       window.addEventListener("focus", dayRolled);
       setInterval(dayRolled, 60000);
