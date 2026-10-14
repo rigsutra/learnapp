@@ -21716,6 +21716,9 @@
       }
       // Adopt a state read from the linked file if it is newer than what this browser has.
       async function readLinkedFile() {
+        // In a browser synced to an account the file is a write-only backup: reading it could pull in another account's data.
+        const o = getOwner();
+        if (o && o !== "signed-out") return;
         try {
           const txt = await (await fileHandle.getFile()).text();
           if (!txt.trim()) return;
@@ -21793,7 +21796,7 @@
         render();
       }
 
-      /* ---- Cloud sync: Supabase, one row per signed-in user in table kanban_state (RLS-protected). Newest savedAt wins. ---- */
+      /* ---- Cloud sync: Supabase, one row per signed-in user in table kanban_state (RLS-protected). On sign-in the row wins; afterwards newest savedAt wins. ---- */
       const SB_URL = "https://ldbdkrcfjsuedqmjfxlu.supabase.co",
         SB_KEY = "sb_publishable_hyqZ-2SLhFkS0UAfb3iY7Q_pxEWhsrs";
       const sb =
@@ -21828,25 +21831,28 @@
           if (ss) ss.textContent = statText();
         }
       }
-      // Adopt the cloud copy if it is newer than what this browser has.
-      async function cloudPull() {
+      // The signed-in user's saved state, or null if they have no row yet.
+      async function cloudFetch() {
         const { data, error } = await sb
           .from("kanban_state")
           .select("data")
           .maybeSingle();
         if (error) throw error;
         const d = data && data.data;
-        if (
-          d &&
-          d.v === 2 &&
-          Array.isArray(d.tasks) &&
-          (d.savedAt || 0) > (S.savedAt || 0)
-        ) {
-          S = d.cv === CV ? d : migrate(d);
-          S.rd = S.rd || {};
-          try {
-            localStorage.setItem(KEY, JSON.stringify(S));
-          } catch (e) {}
+        return d && d.v === 2 && Array.isArray(d.tasks) ? d : null;
+      }
+      function cloudAdopt(d) {
+        S = d.cv === CV ? d : migrate(d);
+        S.rd = S.rd || {};
+        try {
+          localStorage.setItem(KEY, JSON.stringify(S));
+        } catch (e) {}
+      }
+      // Adopt the cloud copy if it is newer than what this browser has.
+      async function cloudPull() {
+        const d = await cloudFetch();
+        if (d && (d.savedAt || 0) > (S.savedAt || 0)) {
+          cloudAdopt(d);
           return true;
         }
       }
@@ -21881,14 +21887,21 @@
           render();
           return;
         }
-        // Local data from another account, or made after a sign-out, is dropped instead of merged.
         const owner = getOwner();
-        if (owner && owner !== cloudUser.id) S = seed();
-        setOwner(cloudUser.id);
         try {
-          await cloudPull();
+          const d = await cloudFetch();
+          if (d) {
+            // The account's row wins. Local data is only kept when it is this account's own newer, unsynced edit;
+            // a fresh or anonymous browser copy (even if edited a moment ago) must never overwrite it.
+            if (owner === cloudUser.id && (S.savedAt || 0) > (d.savedAt || 0)) await cloudPush();
+            else cloudAdopt(d);
+          } else {
+            // No row yet: upload what is here, unless it belongs to another account or was made after a sign-out.
+            if (owner && owner !== cloudUser.id) S = seed();
+            await cloudPush();
+          }
+          setOwner(cloudUser.id);
           cloudState = "on";
-          await cloudPush();
         } catch (e) {
           cloudState = "error";
           cloudErr = e.message;
