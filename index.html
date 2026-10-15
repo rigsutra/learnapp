@@ -22455,6 +22455,7 @@
       const TK = () => S.takeaways || (S.takeaways = {});
       const notes = () => S.notes || (S.notes = []);
       const cards = () => S.cards || (S.cards = []);
+      const decks = () => S.decks || (S.decks = []);
       const takeBox = (u, open) => {
         const text = TK()[u]?.text || "";
         return `<details class="take" ${open || text ? "open" : ""}><summary>What I got from this article</summary><textarea data-take="${esc(u)}" rows="4" placeholder="Key points in your own words…">${esc(text)}</textarea><div class="small muted">Saved automatically. All takeaways are on the Notes page. ${cardHint}</div>${articleCards(u)}</details>`;
@@ -22659,10 +22660,21 @@
       }
       const dueCards = () =>
         cards().filter((c) => (!cProj || c.pid === cProj) && c.due <= today());
-      // Cards are grouped under what they came from: an article, a note, or (for cards made directly) their project.
+      // Cards are grouped under a group the user made (c.gid), else under what they came from:
+      // an article, a note, or (for cards made directly) their project.
       // `pre` attaches a card added from the group to the same parent.
       const cOpen = new Set();
+      const deckGroup = (d) => ({
+        k: "d:" + d.id,
+        kind: "Group",
+        title: d.name,
+        color: "var(--wa)",
+        did: d.id,
+        pre: { gid: d.id },
+      });
       const cardGroup = (c) => {
+        const d = c.gid && decks().find((x) => x.id === c.gid);
+        if (d) return deckGroup(d);
         if (c.aurl) {
           const r = article(c.aurl);
           return {
@@ -22717,12 +22729,15 @@
           }</div>`;
         }
         const groups = new Map();
+        // Your own groups show even when empty, so cards can be added to them.
+        if (!cProj)
+          decks().forEach((d) => groups.set("d:" + d.id, { ...deckGroup(d), list: [] }));
         all.forEach((c) => {
           const g = cardGroup(c);
           if (!groups.has(g.k)) groups.set(g.k, { ...g, list: [] });
           groups.get(g.k).list.push(c);
         });
-        const kinds = ["Article", "Note", "Project"];
+        const kinds = ["Group", "Article", "Note", "Project"];
         const rows = [...groups.values()]
           .map((g) => ({ ...g, due: g.list.filter((c) => c.due <= today()).length }))
           .sort(
@@ -22733,7 +22748,7 @@
           )
           .map(
             (g) => `<details class="panel cgrp" data-g="${esc(g.k)}" ${cOpen.has(g.k) ? "open" : ""}><summary><span class="badge" style="--t:${g.color}">${g.kind}</span><b class="gt">${esc(g.title)}</b><span class="sp"></span><span class="small muted">${g.list.length} card${g.list.length === 1 ? "" : "s"}${g.due ? ` · ${g.due} due` : ""}</span>${g.due ? `<button class="btn sm pri" data-act="review" data-g="${esc(g.k)}">Review ${g.due}</button>` : ""}</summary>
-      <div class="gacts">${g.url ? `<a href="${esc(safeUrl(g.url))}" target="_blank" rel="noopener">Open article</a>` : ""}${g.nid ? `<button class="btn sm" data-act="editNote" data-id="${g.nid}">Open note</button>` : ""}<button class="btn sm" data-act="newCard" ${Object.entries(
+      <div class="gacts">${g.url ? `<a href="${esc(safeUrl(g.url))}" target="_blank" rel="noopener">Open article</a>` : ""}${g.nid ? `<button class="btn sm" data-act="editNote" data-id="${g.nid}">Open note</button>` : ""}${g.did ? `<button class="btn sm" data-act="editDeck" data-id="${g.did}">Rename or delete</button>` : ""}<button class="btn sm" data-act="newCard" ${Object.entries(
               g.pre,
             )
               .map(([k, v]) => `data-${k}="${esc(v)}"`)
@@ -22745,14 +22760,14 @@
           (c) =>
             `<div class="crow"><div>${esc(c.front)}</div><div class="b">${esc(c.back)}</div><span class="small muted">${c.due <= today() ? "due" : fmt(c.due, { month: "short", day: "numeric" })}</span><button class="icon" data-act="editCard" data-id="${c.id}" title="Edit">✎</button></div>`,
         )
-        .join("")}</details>`,
+        .join("")}${g.list.length ? "" : '<div class="empty">No cards yet. Use + Card here, or pick this group when editing a card.</div>'}</details>`,
           )
           .join("");
-        return `<div class="head"><h2>Flashcards</h2><span class="sp"></span><button class="btn pri" data-act="newCard">+ Card</button>
+        return `<div class="head"><h2>Flashcards</h2><span class="sp"></span><button class="btn" data-act="newDeck">+ Group</button><button class="btn pri" data-act="newCard">+ Card</button>
     <div class="sub">Review the cards due each day. Good and Easy push a card further out; Again shows it again in this session. In a note, a line like <b>question :: answer</b> becomes a card.</div></div>
     <div class="filters" style="margin-bottom:14px"><select id="cflt"><option value="">All projects</option>${projOpts(cProj)}</select><span class="small muted">${due.length} due · ${all.length} total</span></div>
     ${review}
-    ${all.length ? `<div class="ph">Cards by source <span class="sp"></span><span class="small" style="text-transform:none;letter-spacing:0">${groups.size} group${groups.size === 1 ? "" : "s"}</span></div>${rows}` : ""}`;
+    ${groups.size ? `<div class="ph">Card groups <span class="sp"></span><span class="small" style="text-transform:none;letter-spacing:0">${groups.size} group${groups.size === 1 ? "" : "s"}</span></div>${rows}` : ""}`;
       }
 
       function syncView() {
@@ -23166,15 +23181,31 @@
               pid: pre.pid ?? (pre.aurl ? "" : cProj),
               aurl: pre.aurl || "",
               nid: pre.nid || "",
+              gid: pre.gid || "",
             };
         const src = cardSrc(c);
         dlg.innerHTML = `<form data-kind="card" data-id="${id || ""}" data-aurl="${esc(c.aurl || "")}" data-nid="${esc(c.nid || "")}"><h3>${id ? "Edit card" : "New card"}</h3>
     ${src ? `<div class="small muted">${src}</div>` : ""}
     <label class="f">Front (question)</label><textarea name="front" rows="2" required>${esc(c.front)}</textarea>
     <label class="f">Back (answer)</label><textarea name="back" rows="4" required>${esc(c.back)}</textarea>
-    <label class="f">Project</label><select name="pid"><option value="">General</option>${projOpts(c.pid)}</select>
+    <div class="two"><div><label class="f">Project</label><select name="pid"><option value="">General</option>${projOpts(c.pid)}</select></div>
+    <div><label class="f">Group</label><select name="gid"><option value="">By source (article, note or project)</option>${decks()
+      .map(
+        (d) =>
+          `<option value="${d.id}" ${d.id === c.gid ? "selected" : ""}>${esc(d.name)}</option>`,
+      )
+      .join("")}</select></div></div>
     ${id ? `<div class="small muted" style="margin-top:8px">Next review: ${fmt(c.due)}</div>` : ""}
     ${dfoot(id && "delCard")}</form>`;
+        dlg.showModal();
+      }
+
+      function openDeck(id) {
+        const d = id ? decks().find((x) => x.id === id) : { name: "" };
+        dlg.innerHTML = `<form data-kind="deck" data-id="${id || ""}"><h3>${id ? "Edit group" : "New group"}</h3>
+    <label class="f">Name</label><input name="name" value="${esc(d.name)}" required placeholder="e.g. Networking terms">
+    <div class="small muted" style="margin-top:6px">Put a card in this group with + Card inside the group, or with the Group field when editing a card.${id ? " Deleting the group keeps its cards: they go back under their article, note or project." : ""}</div>
+    ${dfoot(id && "delDeck")}</form>`;
         dlg.showModal();
       }
 
@@ -23303,8 +23334,16 @@
             front: fd.get("front").trim(),
             back: fd.get("back").trim(),
             pid: fd.get("pid"),
+            gid: fd.get("gid"),
           });
           if (!id) cards().push(c);
+        } else if (kind === "deck") {
+          const d = id ? decks().find((x) => x.id === id) : { id: uid() };
+          d.name = fd.get("name").trim();
+          if (!id) {
+            decks().push(d);
+            cOpen.add("d:" + d.id);
+          }
         } else if (kind === "take") {
           const text = fd.get("text");
           cardsFromText(text, { aurl: id });
@@ -23363,7 +23402,18 @@
               aurl: el.dataset.u,
               nid: el.dataset.nid,
               pid: el.dataset.pid,
+              gid: el.dataset.gid,
             });
+          case "newDeck":
+            return openDeck();
+          case "editDeck":
+            return openDeck(id);
+          case "delDeck":
+            if (!confirmTwice(el)) return;
+            S.decks = decks().filter((d) => d.id !== fid);
+            cards().forEach((c) => c.gid === fid && (c.gid = ""));
+            dlg.close();
+            break;
           case "editCard":
             return openCard(id);
           case "delCard":
